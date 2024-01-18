@@ -1,7 +1,8 @@
 const nodemailer = require('nodemailer')
 require('dotenv').config();
+console.log(process.env.API_URL)
 
-class MailService { 
+class MailService {
 
     constructor() {
         this.transporter = nodemailer.createTransport({
