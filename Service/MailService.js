@@ -17,11 +17,11 @@ class MailService {
         await this.transporter.sendMail({
             from: process.env.SMTP_USER,
             to,
-            subject: `Активация аккаунта на <b>EPSAVER</b>`,
+            subject: `Активация аккаунта на EPSAVER`,
             text: " ",
             html: 
                 `<div>
-                    <h1>Для активации перейдите по ссылке</h1>
+                    <h1>Для активации профиля в веб-приложение "EPSAVER" перейдите по ссылке</h1>
                     <a href="${link}">${link}</a>
                 </div>`,
             });
