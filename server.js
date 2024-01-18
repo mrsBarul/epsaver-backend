@@ -10,8 +10,7 @@ require('dotenv').config();
 
 mongoose.set("strictQuery", false);
 
-const PORT = 8000 || process.env.port;
-const api = process.env.API_URL;
+const PORT =  process.env.port;
 
 app.use(express.json());
 app.use(cors({
@@ -30,5 +29,4 @@ mongoose
 
 app.listen(PORT, () => {
     console.log(`I am listening on PORT ${PORT}`);
-    console.log(`письмо ${api}`);
 });
