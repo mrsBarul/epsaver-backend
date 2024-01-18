@@ -44,7 +44,7 @@ module.exports.activate = async (req, res, next) => {
     try {
         const activationLink = req.params.link;
         await UserService.activate(activationLink);
-        return res.redirect(`https://timely-lamington-b8c71e.netlify.app/ChoiceAuth`)
+        return res.redirect(`${process.env.CLIENT_URL}/ChoiceAuth`)
     } catch (e) {
         next(e);
     }
