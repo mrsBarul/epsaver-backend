@@ -16,7 +16,7 @@ class UserService {
         const hashPassword = await bcrypt.hash(password, 3)
         const activationLink = uuid.v4();
         const user = await UserModel.create({ email, password: hashPassword, fullName, activationLink })
-        await MailService.sendActivationMail( email, `${process.env.API_URL}/activate/${activationLink}`);
+        await MailService.sendActivationMail( email, `https://epsaver.onrender.com/activate/${activationLink}`);
         const userDto = new UserDto(user);
         const tokens = TokenService.generateTokens({...userDto});
         await TokenService.saveToken(userDto.id, tokens.refreshToken);
@@ -27,7 +27,7 @@ class UserService {
     async activate(activationLink) {
         const user = await UserModel.findOne({activationLink})
         if(!user) {
-            throw AuthError.BadRequest("Некорректная ссылка аактивации")
+            throw AuthError.BadRequest("Некорректная ссылка активации")
         }
         user.isActivated = true;
         await user.save();
