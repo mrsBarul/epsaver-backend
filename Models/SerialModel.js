@@ -10,6 +10,7 @@ const epsaverSchema = new mongoose.Schema({
         comment: { type: String, required: true },
         raiting: { type: String, required: true },
         newSeason: { type: String},
+        idSerial: { type: Number, required: true },
         userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User'}
 })
 

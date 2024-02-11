@@ -8,9 +8,9 @@ module.exports.getAllSerials = async (req, res) => {
 
 module.exports.saveSerial = async (req, res) => {
     const {  title, translate, series, episode, 
-        status, poster, comment, raiting, newSeason, userId } = req.body;
+        status, poster, comment, raiting, newSeason, idSerial, userId } = req.body;
     SerialModel.create({ title, translate, series, episode, 
-        status, poster, comment, raiting, newSeason, userId })
+        status, poster, comment, raiting, newSeason, idSerial, userId })
     .then((data) => {console.log('serial added')
     res.send(data)
     })
