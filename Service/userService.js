@@ -16,7 +16,7 @@ class UserService {
         const hashPassword = await bcrypt.hash(password, 3)
         const activationLink = uuid.v4();
         const user = await UserModel.create({ email, password: hashPassword, fullName, activationLink })
-        await MailService.sendActivationMail( email, `https://epsaver.onrender.com/activate/${activationLink}`);
+        await MailService.sendActivationMail( email, `https://epsaver-p913.onrender.com/activate/${activationLink}`);
         const userDto = new UserDto(user);
         const tokens = TokenService.generateTokens({...userDto});
         await TokenService.saveToken(userDto.id, tokens.refreshToken);
